@@ -411,9 +411,9 @@ Tüm metinlerin, mesajların, adların vb. çevrilebileceğini unutmayın. Farkl
 
 Değişkenler, yöntemler veya sınıf adları gibi bazı programlama nesnelerini veya türler, yapılar, tablolar vb. gibi sözlük nesnelerini adlandırırken yalnızca İngilizce adları kullanın.
 
-Başka diller kullanmayın, birleştirmeyin. İngilizce çoğu ülkede anlaşılabilir, kodunuzu uluslararası hale getirmek faydalı ve kibar. Belki başka bir ülkeden başka bir ekip tarafından desteklenir.
+Başka diller kullanmayın, birleştirmeyin. İngilizce çoğu ülkede anlaşılabilir, kodunuzu uluslararası hale getirmek faydalı olacaktır. Belki başka bir ülkeden başka bir ekip tarafından desteklenir.
 
-Ve bu, programlama dünyasında sadece bir standart ve en iyi uygulamadır. Barbar olmayın.
+Ve bu, programlama dünyasında sadece bir standart ve en iyi uygulamadır. 
 
 
 ### Kullanıcı Arayüzünde Yalnızca Çevrilebilir Metinleri Kullanın
@@ -472,7 +472,7 @@ Kurumsal geliştirmede çok kullanışlı olan bir dizi iyi bilinen klasik OOP t
 
 ### Demeter Yasasına Saygı
 
-- her birim diğer birimler hakkında sadece sınırlı bilgiye sahip olmalıdır: sadece mevcut birime "yakından" ilgili birimler; 
+- her birim diğer birimler hakkında sadece sınırlı bilgiye sahip olmalıdır: sadece mevcut birime "yakından" ilgi gösterilmelidir; 
 
 - her birim sadece arkadaşlarıyla konuşmalıdır; yabancılarla konuşmayın; 
 - sadece yakın arkadaşlarınızla konuşun.
