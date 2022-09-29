@@ -12,7 +12,7 @@ Bir  issue veya pull request bulunmaktan çekinmeyin.
 
 - Stil ve Yönergeler 
     - Pretty-Printer
-    - Adlandırma Kurallarıns
+    - Adlandırma Kuralları
     - snake_case
     - Tutarlı yazım
     - Eski ifadelerden kaçının
