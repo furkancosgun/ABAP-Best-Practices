@@ -8,76 +8,76 @@ Temiz ABAP geliştirmenin ortak ilkeleri.
 Bir şey mi eksik? Bir şey mi yanlış? Bir yazım hatası mı buldunuz?
 Bir  issue veya pull request bulunmaktan çekinmeyin.
 
-#### Contents
+#### İçerikler
 
-- [Stil ve Yönergeler](#Stil) 
-    - [Pretty-Printer](#Pretty-Printer)
-    - [Adlandırma Kuralları](#use-naming-conventions)
-    - [snake_case](#use-snake_case)
-    - [Tutarlı yazım](#use-consistent-spelling)
-    - [Eski ifadelerden kaçının](#avoid-obsolete-statements)
-- [Kodlama](#coding)
-    - [Endişelerin Ayrılığı ilkesi](#follow-the-separation-of-concerns-principle)
-    - [Kendini tanımlayan kod](#write-self-describing-code)
-    - [Nasıl yaptığınızı değil, ne yaptığınızı yorumlayın](#comment-what-you-do-not-how-you-do)
-    - [Mümkün olduğunca yerel calisin](#be-as-local-as-possible)
-    - [Degisebilir sayılar kullanmayın](#do-not-use-magic-numbers)
-    - [Derin yuvalamadan kaçının](#avoid-deep-nesting)
-    - [Otomatik kod kontrollerini kullanın](#use-automated-code-checks)
-    - [Ölü Kodu silin](#delete-dead-code)
-    - [Hataları görmezden gelme](#do-not-ignore-errors)
-    - [Sınıf tabanlı istisnaları kullanın](#use-class-based-exceptions)
-    - [İstisnaları mümkün olan en kısa sürede ele alın](#handle-exceptions-as-soon-as-possible)
-    - [Bir problem başına bir istisna sınıfı, farklı problem sebepleri için birkaç metin](#one-exception-class-per-one-problem-several-texts-for-different-problem-reasons)
-    - [Program erişilebilirliğini kontrol edin](#check-program-accessibility)
-    - [Herhangi bir paylaşılan veri erişimini veri erişim sınıflarına sarın](#wrap-any-shared-data-access-into-data-access-classes)
-    - [Örtük veri bildirimlerinden kaçının](#avoid-implicit-data-declarations)
-    - [Yerleşik Boolean türlerini ve sabitlerini kullanın](#use-built-in-boolean-types-and-constants)
-    - [Kullanıcı arayüzünde sistem alanlarını kullanmayın](#do-not-use-system-fields-in-ui)
-    - [Uygun bir dahili tablo kategorisi kullanın](#use-a-suitable-category-of-internal-table)
-    - [ir tablo satırına erişmek için uygun yolu seçin](#choose-an-appropriate-way-to-access-a-table-row)
-    - [Bir döngüdeki tabloyu modify etmeyin](#do-not-modify-an-entire-table-in-a-loop)
-    - [RETURN ile işlemden çıkın](#exit-processing-with-return)
-    - [Diyalog modüllerinde ve event bloklarında mantık uygulamayın](#do-not-implement-logic-in-dialog-modules-and-event-blocks)
-    - [Makroları yalnızca istisnai durumlarda kullanın](#only-use-macros-in-exceptional-cases)
-    - [Örtülü olarak çağrılan mesajlar için anchorlar oluşturun](#make-anchors-for-implicitly-called-messages)
-- [Dil ve Çeviri](#language-and-translation)
-    - [Sabit olarak kodlama yapmayın](#do-not-hardcode-texts)
-    - [Sabit metinler kullanmayın](#do-not-use-text-constants)
-    - [Metin depolamak için veritabanı metin tablolarını kullanın](#use-text-tables-for-text-storage-in-db)
-    - [Bir projedeki tüm nesneler için aynı orijinal dili kullanın](#use-same-original-language-for-all-objects-in-a-project)
-    - [Çeviriyi aklınızda bulundurun](#keep-translation-in-mind)
-    - [Geliştirme nesneleri için yalnızca İngilizce adlandırma kullanın](#use-only-english-naming-for-development-objects)
-    - [Kullanıcı arayüzünde yalnızca çevrilebilir metinleri kullanın](#use-only-translatable-texts-in-ui)
-    - [Mesajlarda numaralı yer tutucuları kullanın](#use-numbered-placeholders-in-messages)
-- [Nesne tabanlı programlama](#object-oriented-programming)
-    - [İşlevsel modüller yerine sınıfları kullanın veya mümkünse gerçekleştirir](#use-classes-instead-of-functional-modules-or-performs-whereas-possible)
-    - [SOLID prensiplerini uygula](#stay-solid)
-    - [GRASP kullan](#use-grasp)
-    - [OOP Tasarim desenlerini ogren](#learn-oop-design-patterns)
-    - [Demeter Yasasına Saygı Duyun](#respect-the-law-of-demeter)
-    - [Yardımcılar, yardımcı programlar vb. sınıflardan kaçının](#avoid-classes-for-helpers-utilities-etc)
-- [Veritabani Kullanimi](#database-usage)
-    - [Mümkünse OpenSQL kullanın](#use-opensql-whereas-possible)
-    - [Veritabani işlemlerinden sonra sy-subrc'yi kontrol edin](#check-sy-subrc-after-db-operations)
-    - [Yalnızca ihtiyacınız olan alanları okuyun](#read-only-those-fields-you-need)
-    - [ForAllEntries icin tabloyu kontrol edin](#check-fae-table-emptiness)
-- [Performans](#performance)
-    - [Döngülerde SELECT yapmayın](#do-not-perform-select-in-loops)
-    - [FAE ve RANGE yerine JOIN'i tercih edin](#prefer-join-over-fae-and-range)
-    - [HANA d FAE Kullanin](#use-fae-on-hana)
-    - [Veritabani isteklerinin sayısını azaltın](#reduce-the-number-of-db-requests)
-    - [Kodunuzu profilleyin](#profile-your-code)
-- [Test](#testing)
-  - [Yalnızca genel arayüzü test edin](#test-only-public-interface)
-  - [Testlerinizi izole edin](#isolate-your-tests)
-  - [Testleri tekrarlanabilir tutun](#keep-tests-repeatable)
-  - [Birim testlerini davranış örneği ve dokümantasyon olarak kullanın](#use-unit-tests-as-behavior-example-and-documentation)
-  - [Mimariyi tasarlarken testleri aklınızda bulundurun](#keep-tests-in-mind-while-designing-architecture)
+- Stil ve Yönergeler 
+    - Pretty-Printer
+    - Adlandırma Kurallarıns
+    - snake_case
+    - Tutarlı yazım
+    - Eski ifadelerden kaçının
+- Kodlama
+    - Endişelerin Ayrılığı ilkesi
+    - Kendini tanımlayan kod
+    - Nasıl yaptığınızı değil, ne yaptığınızı yorumlayın
+    - Mümkün olduğunca yerel calisin
+    - Degisebilir sayılar kullanmayın
+    - Derin yuvalamadan kaçının
+    - Otomatik kod kontrollerini kullanın
+    - Ölü Kodu silin
+    - Hataları görmezden gelme
+    - Sınıf tabanlı istisnaları kullanır
+    - İstisnaları mümkün olan en kısa sürede ele alır
+    - Bir problem başına bir istisna sınıfı, farklı problem sebepleri için birkaç metin
+    - Program erişilebilirliğini kontrol edin
+    - Herhangi bir paylaşılan veri erişimini veri erişim sınıflarına sarın
+    - Örtük veri bildirimlerinden kaçının
+    - Yerleşik Boolean türlerini ve sabitlerini kullanın
+    - Kullanıcı arayüzünde sistem alanlarını kullanmayın
+    - Uygun bir dahili tablo kategorisi kullanın
+    - ir tablo satırına erişmek için uygun yolu seçin
+    - Bir döngüdeki tabloyu modify etmeyin
+    - RETURN ile işlemden çıkın
+    - Diyalog modüllerinde ve event bloklarında mantık uygulamayın
+    - Makroları yalnızca istisnai durumlarda kullanın
+    - Örtülü olarak çağrılan mesajlar için anchorlar oluşturun
+- Dilve Çeviri
+    - Sabit olarak kodlama yapmayın
+    - Sabit metinler kullanmayın
+    - Metin depolamak için veritabanı metin tablolarını kullanın
+    - Bir projedeki tüm nesneler için aynı orijinal dili kullanın
+    - Çeviriyi aklınızda bulundurun
+    - Geliştirme nesneleri için yalnızca İngilizce adlandırma kullanın
+    - Kullanıcı arayüzünde yalnızca çevrilebilir metinleri kullanın
+    - Mesajlarda numaralı yer tutucuları kullanın
+- Nesne tabanlı programlama
+    - İşlevsel modüller yerine sınıfları kullanın veya mümkünse gerçekleştirir
+    - SOLID prensiplerini uygula
+    - GRASP kullan
+    - OOP Tasarim desenlerini ogren
+    - Demeter Yasasına Saygı Duyun
+    - Yardımcılar, yardımcı programlar vb. sınıflardan kaçının
+- Veritabani Kullanimi
+    - Mümkünse OpenSQL kullanın
+    - Veritabani işlemlerinden sonra sy-subrc'yi kontrol edin
+    - Yalnızca ihtiyacınız olan alanları okuyun
+    - ForAllEntries icin tabloyu kontrol edin
+- Performans
+    - Döngülerde SELECT yapmayın
+    - FAE ve RANGE yerine JOIN'i tercih edin
+    - HANA d FAE Kullanin
+    - Veritabani isteklerinin sayısını azaltın
+    - Kodunuzu profilleyin
+- Test
+  - Yalnızca genel arayüzü test edin
+  - Testlerinizi izole edin
+  - Testleri tekrarlanabilir tutun
+  - Birim testlerini davranış örneği ve dokümantasyon olarak kullanın
+  - Mimariyi tasarlarken testleri aklınızda bulundurun
 
     
 
-## Stil-ve-Yönergeler
+## Stil ve Yönergeler
 
   Temiz ve hoş kod yazmak için temel yaklaşımlar
 
