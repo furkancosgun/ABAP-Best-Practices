@@ -256,7 +256,7 @@ Bu tür bir sorunun nedenini açıklayan anlamlı mesajlar oluşturun. Hata işl
 
 ### Program Erişilebilirliğini Kontrol Edin
 
-Başvurunuzun engelli kişiler tarafından kullanılabildiğinden emin olun. Bu, kullanıcı arayüzündeki herhangi bir bilginin erişilebilir bir biçimde verilmesi gerektiği anlamına gelir:
+Projenizin engelli kişiler tarafından kullanılabildiğinden emin olun. Bu, kullanıcı arayüzündeki herhangi bir bilginin erişilebilir bir biçimde verilmesi gerektiği anlamına gelir:
 
 - giriş ve çıkış alanları anlamlı etiketlere sahip olmalıdır;
 - simgeler bir araç ipucuna sahip olmalıdır;
@@ -374,7 +374,7 @@ MESSAGE i123(abc) ... INTO sy-msgli.
 
 ## Dil ve Çeviri
 
-Başvuru nasıl uluslararasılaştırma ve yerelleştirmeye hazır hale getirilir
+Program nasıl uluslararasılaştırma ve yerelleştirmeye hazır hale getirilir
 
 ### Metinleri Sabit Kodlamayın
 
